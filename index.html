@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Detailly - Mobile Car Detailing Service</title>
   <style>
     * {
@@ -12,16 +12,32 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
+    /* Background Video Styling */
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+    }
+
     body {
-      background-color: #f5f5f5;
-      color: #333;
+      position: relative;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.6); /* fallback overlay */
+      min-height: 100vh;
+      overflow-x: hidden;
     }
 
     header {
-      background-color: #0c2d48;
+      background-color: rgba(12, 45, 72, 0.85);
       color: #fff;
       padding: 20px 40px;
       text-align: center;
+      position: relative;
+      z-index: 1;
     }
 
     header h1 {
@@ -30,6 +46,8 @@
 
     nav {
       margin-top: 10px;
+      position: relative;
+      z-index: 1;
     }
 
     nav a {
@@ -37,16 +55,25 @@
       text-decoration: none;
       margin: 0 15px;
       font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #01a9b4;
     }
 
     .section {
-      padding: 40px 20px;
       max-width: 1000px;
-      margin: auto;
+      margin: 40px auto;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 30px 25px;
+      border-radius: 8px;
+      position: relative;
+      z-index: 1;
     }
 
     .section h2 {
-      color: #0c2d48;
+      color: #01a9b4;
       margin-bottom: 20px;
     }
 
@@ -54,17 +81,26 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 20px;
+      list-style: none;
+      padding-left: 0;
     }
 
     .features li, .benefits li {
       margin-bottom: 10px;
+      font-size: 1.1em;
+      line-height: 1.5;
     }
 
     .cta {
-      background-color: #0c2d48;
+      background-color: rgba(12, 45, 72, 0.9);
       color: #fff;
       text-align: center;
       padding: 50px 20px;
+      position: relative;
+      z-index: 1;
+      border-radius: 8px;
+      max-width: 600px;
+      margin: 40px auto;
     }
 
     .cta a.main-btn {
@@ -76,6 +112,11 @@
       text-decoration: none;
       font-size: 1.1em;
       border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta a.main-btn:hover {
+      background-color: #028c9e;
     }
 
     .contact-buttons {
@@ -90,22 +131,33 @@
       text-decoration: none;
       border-radius: 5px;
       font-weight: bold;
+      transition: opacity 0.3s ease;
     }
 
-    .whatsapp {
+    .contact-buttons a.whatsapp {
       background-color: #25D366;
     }
 
-    .call {
+    .contact-buttons a.whatsapp:hover {
+      opacity: 0.85;
+    }
+
+    .contact-buttons a.call {
       background-color: #007BFF;
     }
 
+    .contact-buttons a.call:hover {
+      opacity: 0.85;
+    }
+
     footer {
-      background-color: #222;
+      background-color: rgba(0, 0, 0, 0.8);
       color: #ccc;
       text-align: center;
       padding: 20px;
       margin-top: 40px;
+      position: relative;
+      z-index: 1;
     }
 
     @media (max-width: 768px) {
@@ -122,6 +174,12 @@
   </style>
 </head>
 <body>
+
+  <!-- Background Video -->
+  <video autoplay muted loop id="bg-video" playsinline>
+    <source src="https://cdn.coverr.co/videos/coverr-pov-car-wash-6xgsdrjhxy/1080p.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
 
   <header>
     <h1>Detailly</h1>
@@ -179,7 +237,7 @@
     <a href="#" class="main-btn">Book Now</a>
 
     <div class="contact-buttons">
-      <a href="https://wa.me/919778497567" class="whatsapp" target="_blank">💬 Chat on WhatsApp</a>
+      <a href="https://wa.me/919778497567" class="whatsapp" target="_blank" rel="noopener noreferrer">💬 Chat on WhatsApp</a>
       <a href="tel:+919778497567" class="call">📞 Call Us</a>
     </div>
   </section>
